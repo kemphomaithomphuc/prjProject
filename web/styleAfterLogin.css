@@ -1,0 +1,85 @@
+/* styleAfterLogin.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #f0f4f8, #e3f2fd);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.5s ease;
+}
+
+.container {
+    text-align: center;
+    padding: 40px 30px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+    animation: slideUp 0.5s ease;
+    width: 90%;
+    max-width: 500px;
+}
+
+.welcome-title {
+    font-size: 28px;
+    color: #2c3e50;
+    margin-bottom: 24px;
+    animation: fadeIn 0.8s ease;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.nav-button {
+    display: inline-block;
+    background-color: #007bff;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.nav-button:active {
+    transform: translateY(0);
+    opacity: 0.95;
+}
+
+/* Animations */
+@keyframes slideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

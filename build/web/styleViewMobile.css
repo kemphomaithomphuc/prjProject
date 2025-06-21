@@ -1,0 +1,163 @@
+/* styleViewMobile.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(to bottom right, #e3f2fd, #ffffff);
+    min-height: 100vh;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    animation: fadeIn 0.5s ease;
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    animation: slideUp 0.5s ease;
+}
+
+.title {
+    text-align: center;
+    font-size: 32px;
+    color: #2c3e50;
+    margin-bottom: 24px;
+}
+
+.filter-form {
+    margin-bottom: 24px;
+}
+
+.price-range {
+    border: 2px solid #007bff;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f7f9fc;
+}
+
+.price-range label {
+    font-weight: 500;
+    display: block;
+    margin-top: 10px;
+    color: #333;
+}
+
+.input-box {
+    width: 100%;
+    max-width: 200px;
+    padding: 8px;
+    margin: 6px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s;
+}
+
+.input-box:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.btn {
+    padding: 10px 20px;
+    margin-top: 10px;
+    font-weight: 500;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.primary {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.primary:hover {
+    background-color: #0056b3;
+}
+
+.add {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.add:hover {
+    background-color: #218838;
+}
+
+.cart {
+    background-color: #ffc107;
+    color: #212529;
+    display: block;
+    margin: 20px auto 0;
+}
+
+.cart:hover {
+    background-color: #e0a800;
+}
+
+.mobile-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    animation: fadeIn 0.5s ease;
+}
+
+.mobile-table th, .mobile-table td {
+    border: 1px solid #dee2e6;
+    padding: 12px;
+    text-align: center;
+}
+
+.mobile-table thead {
+    background-color: #007bff;
+    color: white;
+}
+
+.mobile-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.summary {
+    margin-top: 20px;
+    color: #333;
+}
+
+.message {
+    color: #e74c3c;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Animations */
+@keyframes slideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
