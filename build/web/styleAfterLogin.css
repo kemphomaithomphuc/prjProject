@@ -1,85 +1,98 @@
-/* styleAfterLogin.css */
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-
-* {
-    box-sizing: border-box;
+body {
     margin: 0;
-    padding: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #74ebd5 0%, #acb6e5 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
 }
 
-body {
-    background: linear-gradient(to right, #f0f4f8, #e3f2fd);
-    height: 100vh;
+.choice-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: background 0.5s ease;
+    width: 100%;
 }
 
-.container {
+.card {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 40px 60px;
     text-align: center;
-    padding: 40px 30px;
-    background-color: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
-    animation: slideUp 0.5s ease;
-    width: 90%;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    transition: all 0.4s ease;
     max-width: 500px;
+    width: 90%;
 }
 
 .welcome-title {
+    color: #fff;
     font-size: 28px;
-    color: #2c3e50;
-    margin-bottom: 24px;
-    animation: fadeIn 0.8s ease;
+    margin-bottom: 30px;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 
 .nav-links {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    margin-bottom: 30px;
 }
 
 .nav-button {
-    display: inline-block;
-    background-color: #007bff;
-    color: #ffffff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
     text-decoration: none;
-    padding: 14px 24px;
-    border-radius: 8px;
-    font-weight: 500;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    color: white;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.nav-button:hover {
-    background-color: #0056b3;
-    transform: translateY(-2px);
+.view-mobile {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
 }
 
-.nav-button:active {
-    transform: translateY(0);
-    opacity: 0.95;
+.view-mobile:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #0072ff, #00c6ff);
 }
 
-/* Animations */
-@keyframes slideUp {
-    from {
-        transform: translateY(30px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+.view-cart {
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+.view-cart:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+}
+
+.logout-container {
+    margin-top: 20px;
+}
+
+.logout-button {
+    background: linear-gradient(to right, #f857a6, #ff5858);
+    color: white;
+    padding: 12px 36px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    box-shadow: 0 6px 15px rgba(248, 87, 166, 0.4);
+}
+
+.logout-button:hover {
+    background: linear-gradient(to right, #ff5858, #f857a6);
+    transform: scale(1.06) translateY(-2px);
+    box-shadow: 0 8px 20px rgba(248, 87, 166, 0.6);
 }

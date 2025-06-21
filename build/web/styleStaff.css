@@ -81,3 +81,46 @@ body {
         opacity: 1;
     }
 }
+.back-container {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.back-btn {
+    background: linear-gradient(135deg, #ff6f61, #ff9472);
+    padding: 12px 30px;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    display: inline-block;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.back-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 150%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: skewX(-25deg);
+    transition: 0.75s;
+}
+
+.back-btn:hover::before {
+    left: 125%;
+}
+
+.back-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 25px rgba(255, 111, 97, 0.6);
+    background: linear-gradient(135deg, #ff9472, #ff6f61);
+}
+

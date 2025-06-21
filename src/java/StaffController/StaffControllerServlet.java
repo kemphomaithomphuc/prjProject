@@ -28,13 +28,18 @@ public class StaffControllerServlet extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<div class='container'>");
-            out.println("<h1 class='welcome'>👋 Your Choice "  + "</h1>");
+            out.println("<h1 class='welcome'>👋 Your Choice</h1>");
 
             out.println("<div class='action-links'>");
             out.println("<a class='btn' href='DataViewServlet?action=add'>➕ Add Mobile</a>");
             out.println("<a class='btn' href='DataViewServlet?action=delete'>❌ Delete Mobile</a>");
             out.println("<a class='btn' href='DataViewServlet?action=update'>✏️ Update Mobile</a>");
             out.println("<a class='btn' href='DataViewServlet?action=search'>🔍 Search Mobile</a>");
+            out.println("</div>");
+
+            // Back to Login button
+            out.println("<div class='back-container'>");
+            out.println("<a class='btn back-btn' href='Login.jsp'>⬅ Log Out</a>");
             out.println("</div>");
 
             out.println("</div>");
