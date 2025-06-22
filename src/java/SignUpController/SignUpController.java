@@ -2,13 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package MainController;
+package SignUpController;
 
 import Models.DAO.UserDAO;
 import Models.DTO.User;
 import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -19,7 +18,7 @@ import jakarta.servlet.http.HttpSession;
  *
  * @author Mainh
  */
-public class MainControllerServlet extends HttpServlet {
+public class SignUpController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,51 +29,45 @@ public class MainControllerServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    private final String loginPage = "Login.jsp";
-    private final String userController = "UserControllerServlet";
-    private final String staffController = "StaffControllerServlet";
     private final String signUpPage = "SignUp.jsp";
-
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        String url = loginPage;
+        int roleNumber;
+        String message, url = null;
+        User user = null;
+        UserDAO userDAO = new UserDAO();
         HttpSession session = request.getSession();
-        String action = request.getParameter("btnAction");
-        String userName = request.getParameter("txtUsername");
-        String message = null;
-        String password = request.getParameter("txtPassword");
-        if (userName.isEmpty() || password.isEmpty()) {
-            url = loginPage;
-            request.setAttribute("Message", "❗You must fill in both username and password.");
-        }
-        try {
-
-            if (action.equals("Sign Up")) {
-                url = signUpPage;
-            }
-            UserDAO userDAO = new UserDAO();
-            User user = userDAO.login(userName, Integer.parseInt(password));
-            if (action.equals("Log In")) {
-                if (userName == null || password == null) {
-                    url = loginPage;
-
-                } else if (user != null) {
-                    session.setAttribute("UserName", userName);
-                    session.setAttribute("User", user);
-                    if (user.getRole() == 2) {
-                        url = staffController;
-                    } else if (user.getRole() == 0) {
-                        url = userController;
+        try  {
+            String userId = request.getParameter("txtUserId");
+            String userName = request.getParameter("txtUserName");
+            String password = request.getParameter("txtPassword");
+            String secondPassword = request.getParameter("txtSecondPassword");
+            String role = request.getParameter("isAdmin");
+            if (userId != null && userName != null && password != null && secondPassword != null) {
+                if (password.equals(secondPassword)) {
+                    if (role == null) {
+                        roleNumber = 0;
                     }
-                }
+                    else {
+                        roleNumber = 2;
+                    }
+                    user = new User(userId, Integer.parseInt(password), userName, roleNumber);
+                    if (userDAO.addUser(user)) {
+                        message = "Sign Up Successfully";
+                    } else {
+                       message = "This user is already exist. Sign Up Again";
+                    }
+                } else {
+                    message = "Passwords are not match";
+                } 
+            } else {
+                message = "You must input all text box";
             }
-
-            out.println("</body>");
-            out.println("</html>");
+            session.setAttribute("Message", message);
+            url = signUpPage;
         } catch (Exception ex) {
-            out.println(ex.getMessage());
+            
         } finally {
             RequestDispatcher rd = request.getRequestDispatcher(url);
             rd.forward(request, response);

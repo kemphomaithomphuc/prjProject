@@ -64,6 +64,10 @@
         <servlet-name>SaveToCartController</servlet-name>
         <servlet-class>UserController.SaveToCartController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SignUpController</servlet-name>
+        <servlet-class>SignUpController.SignUpController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MainControllerServlet</servlet-name>
         <url-pattern>/MainControllerServlet</url-pattern>
@@ -127,6 +131,10 @@
     <servlet-mapping>
         <servlet-name>SaveToCartController</servlet-name>
         <url-pattern>/SaveToCartController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SignUpController</servlet-name>
+        <url-pattern>/SignUpController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
