@@ -1,163 +1,165 @@
-/* styleViewMobile.css */
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-
-* {
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+/* General Page Styles */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f7f9;
     margin: 0;
     padding: 0;
 }
 
-body {
-    background: linear-gradient(to bottom right, #e3f2fd, #ffffff);
-    min-height: 100vh;
-    padding: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    animation: fadeIn 0.5s ease;
-}
-
 .container {
-    width: 100%;
-    max-width: 1000px;
-    background-color: #ffffff;
+    max-width: 1100px;
+    margin: 30px auto;
+    background-color: #fff;
     padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    animation: slideUp 0.5s ease;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    border-radius: 10px;
 }
 
+/* Header */
 .title {
     text-align: center;
-    font-size: 32px;
-    color: #2c3e50;
-    margin-bottom: 24px;
+    font-size: 28px;
+    margin-bottom: 25px;
+    color: #333;
 }
 
+/* Filter Form */
 .filter-form {
-    margin-bottom: 24px;
+    margin-bottom: 30px;
 }
 
 .price-range {
-    border: 2px solid #007bff;
+    border: 1px solid #ccc;
     padding: 20px;
-    border-radius: 8px;
-    background-color: #f7f9fc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
 }
 
-.price-range label {
-    font-weight: 500;
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
     display: block;
-    margin-top: 10px;
-    color: #333;
+    margin-bottom: 6px;
+    font-weight: bold;
 }
 
 .input-box {
     width: 100%;
-    max-width: 200px;
-    padding: 8px;
-    margin: 6px 0;
+    padding: 8px 10px;
     border-radius: 6px;
     border: 1px solid #ccc;
-    transition: border-color 0.3s;
 }
 
-.input-box:focus {
-    border-color: #007bff;
-    outline: none;
-}
-
+/* Buttons */
 .btn {
-    padding: 10px 20px;
-    margin-top: 10px;
-    font-weight: 500;
+    padding: 8px 18px;
     border-radius: 6px;
     border: none;
     cursor: pointer;
-    transition: all 0.3s ease;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+    margin-top: 10px;
 }
 
-.primary {
+.btn.primary {
     background-color: #007bff;
     color: #fff;
 }
 
-.primary:hover {
-    background-color: #0056b3;
-}
-
-.add {
+.btn.add {
     background-color: #28a745;
-    color: #fff;
+    color: white;
 }
 
-.add:hover {
-    background-color: #218838;
-}
-
-.cart {
+.btn.cart {
     background-color: #ffc107;
-    color: #212529;
-    display: block;
-    margin: 20px auto 0;
+    color: #333;
 }
 
-.cart:hover {
-    background-color: #e0a800;
+.btn.back {
+    background-color: #6c757d;
+    color: white;
+    margin-left: 10px;
 }
 
+.btn:hover {
+    filter: brightness(90%);
+}
+
+/* Table Styles */
 .mobile-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-    animation: fadeIn 0.5s ease;
 }
 
 .mobile-table th, .mobile-table td {
-    border: 1px solid #dee2e6;
     padding: 12px;
     text-align: center;
+    border: 1px solid #ddd;
 }
 
-.mobile-table thead {
+.mobile-table th {
     background-color: #007bff;
     color: white;
 }
 
-.mobile-table tbody tr:nth-child(even) {
+.mobile-table tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 25px 0 10px 0;
+    flex-wrap: wrap;
+}
+
+.pagination a, .pagination span {
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    font-weight: bold;
+    color: #007bff;
+    background-color: #fff;
+    transition: 0.2s ease;
+}
+
+.pagination a:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.pagination .current-page {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+/* Summary & Messages */
 .summary {
     margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
     color: #333;
 }
 
 .message {
-    color: #e74c3c;
     margin-top: 10px;
-    text-align: center;
+    font-style: italic;
+    color: #dc3545;
 }
 
-/* Animations */
-@keyframes slideUp {
-    from {
-        transform: translateY(30px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+/* Action Row */
+.action-row {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
 }

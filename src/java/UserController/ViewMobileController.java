@@ -31,6 +31,8 @@ public class ViewMobileController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    int currentPage = 1;
+    int itemsInPage = 10;
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -40,8 +42,18 @@ public class ViewMobileController extends HttpServlet {
         try {
             MobileDAO mobileDAO = new MobileDAO();
             List<Mobile> mobileList = mobileDAO.getMobileList();
+            if (request.getParameter("page") != null) {
+                currentPage = Integer.parseInt(request.getParameter("page"));
+            }
+            List<Mobile> fullList = mobileDAO.getMobileList();
+            int totalItems = fullList.size();
+            int totalPages = (int) Math.ceil((double) totalItems/itemsInPage);
+            int start = (currentPage - 1) * itemsInPage;
+            int end = Math.min(start + itemsInPage, totalItems);
+            List<Mobile> pageList = fullList.subList(start, end);
+            request.setAttribute("currentPage", currentPage);
+            request.setAttribute("totalPages", totalPages);
             session.setAttribute("MobileList", mobileList);
-            
         } catch (Exception ex) {
             out.println(ex.getMessage());
         } finally {

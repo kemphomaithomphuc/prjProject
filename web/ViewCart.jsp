@@ -9,72 +9,94 @@
     <link rel="stylesheet" type="text/css" href="styleCart.css">
 </head>
 <body>
-    <div class="container">
-        <h1 class="title">🛒 Your Cart</h1>
+    <div class="container" id="cart-wrapper">
+        <header class="cart-header">
+            <h1 class="title">🛒 Your Shopping Cart</h1>
+        </header>
 
-        <%
-            int count = 0;
-            int numberOfMobile = 0;
-            List<CartItem> itemList = (List<CartItem>) request.getAttribute("Cart");
+        <main class="cart-content">
+            <%
+                int count = 0;
+                int numberOfMobile = 0;
+                List<CartItem> itemList = (List<CartItem>) request.getAttribute("Cart");
 
-            if (itemList != null && !itemList.isEmpty()) {
-        %>
-        <table class="cart-table">
-            <thead>
-                <tr>
-                    <th>No.</th>
-                    <th>ID</th>
-                    <th>Description</th>
-                    <th>Price</th>
-                    <th>Name</th>
-                    <th>Year</th>
-                    <th>Quantity</th>
-                    <th>Not Sale</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <%
-                    for (CartItem item : itemList) {
-                        numberOfMobile++;
-                %>
-                <tr>
-                    <td><%= ++count %></td>
-                    <td><%= item.getMobileID() %></td>
-                    <td><%= item.getDescription() %></td>
-                    <td>$<%= item.getPrice() %></td>
-                    <td><%= item.getMobileName() %></td>
-                    <td><%= item.getYearOfProduction() %></td>
-                    <td><%= item.getQuantity() %></td>
-                    <td><%= item.isNotSale() %></td>
-                    <td>
-                        <form method="post">
-                            <input type="hidden" name="ItemId" value="<%= item.getMobileID() %>">
-                            <input class="btn remove" type="submit" formaction="ManageCartController?action=Remove" value="Remove">
-                        </form>
-                    </td>
-                </tr>
-                <%
-                    }
-                %>
-            </tbody>
-        </table>
-        <%
-            }
-        %>
+                if (itemList != null && !itemList.isEmpty()) {
+            %>
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>ID</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Name</th>
+                        <th>Year</th>
+                        <th>Quantity</th>
+                        <th>Not Sale</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%
+                        for (CartItem item : itemList) {
+                            numberOfMobile++;
+                    %>
+                    <tr class="cart-item-row">
+                        <td><%= ++count %></td>
+                        <td><%= item.getMobileID() %></td>
+                        <td><%= item.getDescription() %></td>
+                        <td>$<%= item.getPrice() %></td>
+                        <td><%= item.getMobileName() %></td>
+                        <td><%= item.getYearOfProduction() %></td>
+                        <td><%= item.getQuantity() %></td>
+                        <td><%= item.isNotSale() %></td>
+                        <td>
+                            <form method="post">
+                                <input type="hidden" name="ItemId" value="<%= item.getMobileID() %>">
+                                <input class="btn btn-remove" type="submit" formaction="ManageCartController?action=Remove" value="Remove">
+                            </form>
+                        </td>
+                    </tr>
+                    <%
+                        }
+                    %>
+                </tbody>
+            </table>
+            <%
+                } else {
+            %>
+            <div class="empty-message">
+                <p>Your cart is currently empty. 🛍️</p>
+            </div>
+            <%
+                }
+            %>
+        </main>
 
-        <h3 class="summary">🧾 Total Items: <%= numberOfMobile %></h3>
+        <section class="cart-summary">
+            <h3>🧾 Total Items: <span class="total-count"><%= numberOfMobile %></span></h3>
+        </section>
 
-        <form action="ManageCartController" method="post">
-            <input class="btn save" type="submit" name="action" value="Save">
-        </form>
+        <footer class="cart-actions">
+            <form action="ManageCartController" method="post">
+                <input class="btn btn-save" type="submit" name="action" value="Save">
+            </form>
 
-        <a class="btn back" href="ManageCartController?action=ViewList">← Back</a>
+            <form action="ManageCartController" method="post">
+                <input class="btn btn-buy" type="submit" name="action" value="Buy">
+            </form>
+
+            <form action="ViewMobileList.jsp" method="get">
+                <input class="btn btn-back" type="submit" value="← Back">
+            </form>
+        </footer>
 
         <%
             if (request.getAttribute("Message") != null) {
         %>
-            <p class="message"><%= request.getAttribute("Message") %></p>
+        <div class="feedback-message">
+            <p><%= request.getAttribute("Message") %></p>
+        </div>
         <%
             }
         %>
