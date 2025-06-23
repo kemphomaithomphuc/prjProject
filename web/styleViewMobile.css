@@ -50,6 +50,8 @@ label {
     padding: 8px 10px;
     border-radius: 6px;
     border: 1px solid #ccc;
+    margin-right: -1000px;
+    padding-right: -1000px;
 }
 
 /* Buttons */
@@ -163,3 +165,24 @@ label {
     justify-content: center;
     gap: 15px;
 }
+/* Compact Form Row */
+.form-row {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
+/* Compact Form Group */
+.form-group.compact {
+    display: flex;
+    flex-direction: column;
+}
+
+.small-input {
+    width: 120px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
