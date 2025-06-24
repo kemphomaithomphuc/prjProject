@@ -68,6 +68,10 @@
         <servlet-name>SignUpController</servlet-name>
         <servlet-class>SignUpController.SignUpController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ViewProfileController</servlet-name>
+        <servlet-class>ViewProfileController.ViewProfileController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MainControllerServlet</servlet-name>
         <url-pattern>/MainControllerServlet</url-pattern>
@@ -136,6 +140,10 @@
         <servlet-name>SignUpController</servlet-name>
         <url-pattern>/SignUpController</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewProfileController</servlet-name>
+        <url-pattern>/ViewProfileController</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
@@ -144,4 +152,22 @@
             Login.jsp
         </welcome-file>
     </welcome-file-list>
+    <!-- Google OAuth Client -->
+    <dependency>
+        <groupId>com.google.api-client</groupId>
+        <artifactId>google-api-client</artifactId>
+        <version>1.34.1</version>
+    </dependency>
+    <!-- Google OAuth -->
+    <dependency>
+        <groupId>com.google.oauth-client</groupId>
+        <artifactId>google-oauth-client-jetty</artifactId>
+        <version>1.34.1</version>
+    </dependency>
+    <!-- Jackson for parsing -->
+    <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+        <version>2.12.3</version>
+    </dependency>
 </web-app>
