@@ -10,12 +10,14 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 
 /**
  *
  * @author Mainh
  */
 public class UserDAO {
+
     public Connection getConnection() throws Exception {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
@@ -27,7 +29,8 @@ public class UserDAO {
             throw ex;
         }
     }
-    public User login(String fullName, int password) throws Exception{
+
+    public User login(String fullName, int password) throws Exception {
         User user = null;
         Connection cnn = null;
         PreparedStatement preStm = null;
@@ -44,7 +47,7 @@ public class UserDAO {
                 int role = rs.getInt(2);
                 user = new User(userId, password, fullName, role);
             }
-            
+
         } catch (Exception ex) {
             throw ex;
         } finally {
@@ -60,7 +63,8 @@ public class UserDAO {
         }
         return user;
     }
-    public boolean addUser(User user) throws Exception{
+
+    public boolean addUser(User user) throws Exception {
         Connection cnn = null;
         PreparedStatement preStm = null;
         try {
@@ -72,13 +76,45 @@ public class UserDAO {
             preStm.setString(3, user.getFullName());
             preStm.setInt(4, user.getRole());
             return preStm.executeUpdate() > 0;
-        } 
-        catch (Exception ex) {
+        } catch (Exception ex) {
             throw ex;
-        }
-        finally {
-            if (preStm != null) preStm.close();
-            if (cnn != null) cnn.close();
+        } finally {
+            if (preStm != null) {
+                preStm.close();
+            }
+            if (cnn != null) {
+                cnn.close();
+            }
         }
     }
+
+    public boolean addEmail(String email, User user) throws Exception {
+        Connection cnn = null;
+        PreparedStatement preStm = null;
+
+        try {
+            cnn = this.getConnection();
+            String sql = "INSERT INTO tbl_Email (userId, email) VALUES (?, ?)";
+            preStm = cnn.prepareStatement(sql);
+            preStm.setString(1, user.getUserID());
+            preStm.setString(2, email);
+            return preStm.executeUpdate() > 0;
+
+        } catch (SQLIntegrityConstraintViolationException e) {
+            // Email already exists for this user
+            System.out.println("Email already linked to user.");
+            return false;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            throw ex;
+        } finally {
+            if (preStm != null) {
+                preStm.close();
+            }
+            if (cnn != null) {
+                cnn.close();
+            }
+        }
+    }
+
 }

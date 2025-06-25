@@ -3,13 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Mainh.NHAT-MINH/OneDrive/Documents/NetBeansProjects/Workshop1_Prj/src/java/UserController/AddToCartController.java</file>
-            <file>file:/C:/Users/Mainh.NHAT-MINH/OneDrive/Documents/NetBeansProjects/Workshop1_Prj/src/java/UserController/CartUtil.java</file>
-            <file>file:/C:/Users/Mainh.NHAT-MINH/OneDrive/Documents/NetBeansProjects/Workshop1_Prj/src/java/UserController/ViewBookController.java</file>
-            <file>file:/C:/Users/Mainh.NHAT-MINH/OneDrive/Documents/NetBeansProjects/Workshop1_Prj/web/Login.jsp</file>
-            <file>file:/C:/Users/Mainh.NHAT-MINH/OneDrive/Documents/NetBeansProjects/Workshop1_Prj/src/java/Models/DTO/CartItem.java</file>
-            <file>file:/C:/Users/Mainh.NHAT-MINH/OneDrive/Documents/NetBeansProjects/Workshop1_Prj/web/ViewCart.jsp</file>
-            <file>file:/C:/Users/Mainh.NHAT-MINH/OneDrive/Documents/NetBeansProjects/Workshop1_Prj/src/java/UserController/ViewCartController.java</file>
+            <file>file:/C:/Users/Mainh.NHAT-MINH/OneDrive/Documents/NetBeansProjects/Workshop1_Prj/src/java/EmailController/AddEmailServlet.java</file>
+            <file>file:/C:/Users/Mainh.NHAT-MINH/OneDrive/Documents/NetBeansProjects/Workshop1_Prj/web/viewProfile.css</file>
+            <file>file:/C:/Users/Mainh.NHAT-MINH/OneDrive/Documents/NetBeansProjects/Workshop1_Prj/src/java/StaffController/StaffControllerServlet.java</file>
+            <file>file:/C:/Users/Mainh.NHAT-MINH/OneDrive/Documents/NetBeansProjects/Workshop1_Prj/web/AfterLoginUser.jsp</file>
+            <file>file:/C:/Users/Mainh.NHAT-MINH/OneDrive/Documents/NetBeansProjects/Workshop1_Prj/web/ViewProfile.jsp</file>
         </group>
     </open-files>
 </project-private>

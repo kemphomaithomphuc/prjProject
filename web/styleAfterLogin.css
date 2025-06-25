@@ -1,14 +1,43 @@
-body {
+/* Reset & Base */
+* {
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #74ebd5 0%, #acb6e5 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    overflow: hidden;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(120deg, #d4e0f7, #f5fafd);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Form Profile Button */
+form {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.profile-button {
+    padding: 10px 20px;
+    background-color: #5c9ded;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.profile-button:hover {
+    background-color: #407ecc;
+}
+
+/* Container */
 .choice-container {
     display: flex;
     justify-content: center;
@@ -16,83 +45,107 @@ body {
     width: 100%;
 }
 
+/* Glassmorphism Card */
 .card {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 20px;
-    padding: 40px 60px;
+    padding: 40px 30px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
     text-align: center;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-    transition: all 0.4s ease;
-    max-width: 500px;
-    width: 90%;
+    animation: fadeIn 0.6s ease-out;
 }
 
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Title */
 .welcome-title {
-    color: #fff;
-    font-size: 28px;
+    font-size: 24px;
+    color: #2c3e50;
     margin-bottom: 30px;
     font-weight: 600;
-    letter-spacing: 1px;
 }
 
+/* Navigation Buttons */
 .nav-links {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 15px;
     margin-bottom: 30px;
 }
 
 .nav-button {
-    padding: 12px 24px;
-    border: none;
-    border-radius: 50px;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 10px;
     font-size: 16px;
     font-weight: bold;
-    text-decoration: none;
-    color: white;
-    transition: 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: all 0.3s ease;
 }
 
+/* Specific Buttons */
 .view-mobile {
-    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    background-color: #48bfe3;
+    color: white;
 }
 
 .view-mobile:hover {
-    transform: scale(1.05);
-    background: linear-gradient(135deg, #0072ff, #00c6ff);
+    background-color: #329fc7;
 }
 
 .view-cart {
-    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    background-color: #4ade80;
+    color: white;
 }
 
 .view-cart:hover {
-    transform: scale(1.05);
-    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+    background-color: #22c55e;
 }
 
+/* Logout Button */
 .logout-container {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .logout-button {
-    background: linear-gradient(to right, #f857a6, #ff5858);
-    color: white;
-    padding: 12px 36px;
-    border-radius: 30px;
-    font-weight: bold;
-    font-size: 16px;
     text-decoration: none;
-    transition: all 0.3s ease;
+    background-color: #ff6b6b;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
     display: inline-block;
-    box-shadow: 0 6px 15px rgba(248, 87, 166, 0.4);
 }
 
 .logout-button:hover {
-    background: linear-gradient(to right, #ff5858, #f857a6);
-    transform: scale(1.06) translateY(-2px);
-    box-shadow: 0 8px 20px rgba(248, 87, 166, 0.6);
+    background-color: #e55050;
+}
+
+/* Responsive */
+@media screen and (max-width: 500px) {
+    .card {
+        padding: 30px 20px;
+    }
+    .welcome-title {
+        font-size: 20px;
+    }
+    .nav-button {
+        font-size: 14px;
+    }
 }

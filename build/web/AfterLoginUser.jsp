@@ -7,6 +7,10 @@
     <link rel="stylesheet" type="text/css" href="styleAfterLogin.css">
 </head>
 <body>
+    <form action="ViewProfileController" method="post">
+        <input type="submit" value="View Profile" class="profile-button">
+    </form>
+
     <div class="choice-container">
         <%
             String userName = (String) session.getAttribute("UserName");

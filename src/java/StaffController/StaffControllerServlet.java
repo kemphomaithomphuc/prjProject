@@ -27,6 +27,9 @@ public class StaffControllerServlet extends HttpServlet {
             out.println("<link rel='stylesheet' type='text/css' href='styleStaff.css'>");
             out.println("</head>");
             out.println("<body>");
+            out.println("<form action=\"ViewProfileController\" method=\"post\">");
+            out.println("<input type=\"submit\" value=\"View Profile\" class=\"profile-button\">");
+            out.println("</form>");
             out.println("<div class='container'>");
             out.println("<h1 class='welcome'>👋 Your Choice</h1>");
 

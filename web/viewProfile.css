@@ -1,0 +1,135 @@
+/* Base styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #c3ecf5, #a2b6fd);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Wrapper to center content */
+.profile-wrapper {
+    width: 100%;
+    max-width: 850px;
+    padding: 2rem;
+}
+
+/* Card container with glass effect */
+.profile-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 1.5rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    padding: 2rem 2.5rem;
+    text-align: center;
+    animation: fadeIn 0.6s ease;
+}
+
+/* Title */
+.page-title {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+}
+
+/* Profile image */
+.profile-pic {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    margin-bottom: 1.5rem;
+}
+
+/* Table styles — unchanged in HTML */
+.profile-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+}
+
+.profile-table td {
+    padding: 1rem 1.2rem;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+    vertical-align: middle;
+    color: #333;
+}
+
+.profile-table td:first-child {
+    font-weight: 600;
+    color: #555;
+    width: 35%;
+    background-color: #f9f9f9;
+}
+
+/* Button group */
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+/* Buttons */
+.btn {
+    padding: 0.7rem 1.5rem;
+    border-radius: 1.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    color: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.add-email-btn {
+    background: linear-gradient(135deg, #00b4db, #0083b0);
+}
+
+.add-email-btn:hover {
+    background: linear-gradient(135deg, #0094c7, #006e96);
+    transform: translateY(-2px);
+}
+
+.back-btn {
+    background: linear-gradient(135deg, #f7971e, #ffd200);
+    color: #333;
+}
+
+.back-btn:hover {
+    background: linear-gradient(135deg, #f48c06, #ffcc00);
+    transform: translateY(-2px);
+}
+
+/* Message box */
+.message {
+    background: #d4edda;
+    color: #155724;
+    padding: 1rem 1.25rem;
+    border-left: 5px solid #28a745;
+    border-radius: 1rem;
+    font-weight: 500;
+    max-width: 500px;
+    margin: 1rem auto 0;
+    animation: slideDown 0.4s ease;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

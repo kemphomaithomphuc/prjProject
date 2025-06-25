@@ -72,6 +72,10 @@
         <servlet-name>ViewProfileController</servlet-name>
         <servlet-class>ViewProfileController.ViewProfileController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddEmailServlet</servlet-name>
+        <servlet-class>EmailController.AddEmailServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MainControllerServlet</servlet-name>
         <url-pattern>/MainControllerServlet</url-pattern>
@@ -143,6 +147,10 @@
     <servlet-mapping>
         <servlet-name>ViewProfileController</servlet-name>
         <url-pattern>/ViewProfileController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddEmailServlet</servlet-name>
+        <url-pattern>/AddEmailServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
