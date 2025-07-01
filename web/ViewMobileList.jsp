@@ -43,71 +43,73 @@
             %>
 
             <% if (mobileList != null && !mobileList.isEmpty()) { %>
-                <!-- 📦 Mobile List Table -->
-                <table class="mobile-table">
-                    <thead>
-                        <tr>
-                            <th>No.</th>
-                            <th>ID</th>
-                            <th>Description</th>
-                            <th>Price</th>
-                            <th>Name</th>
-                            <th>Year</th>
-                            <th>Quantity</th>
-                            <th>Not Sale</th>
-                            <th>Add</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% count = (currentPage - 1) * 10; %>
-                        <% for (Mobile mobile : mobileList) { numberOfMobile++; %>
-                        <tr>
-                            <td><%= ++count %></td>
-                            <td><%= mobile.getMobileID() %></td>
-                            <td><%= mobile.getDescription() %></td>
-                            <td>$<%= mobile.getPrice() %></td>
-                            <td><%= mobile.getMobileName() %></td>
-                            <td><%= mobile.getYearOfProduction() %></td>
-                            <td><%= mobile.getQuantity() %></td>
-                            <td><%= mobile.isNotSale() ? "Yes" : "No" %></td>
-                            <td>
-                                <form action="ManageCartController" method="post">
-                                    <input type="hidden" name="MobileId" value="<%= mobile.getMobileID() %>">
-                                    <input class="btn add" type="submit" value="Add" name="action">
-                                </form>
-                            </td>
-                        </tr>
-                        <% } %>
-                    </tbody>
-                </table>
+            <!-- 📦 Mobile List Table -->
+            <table class="mobile-table">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>ID</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Name</th>
+                        <th>Year</th>
+                        <th>Quantity</th>
+                        <th>Not Sale</th>
+                        <th>Add</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% count = (currentPage - 1) * 10; %>
+                    <% for (Mobile mobile : mobileList) { numberOfMobile++; %>
+                    <tr>
+                        <td><%= ++count %></td>
+                        <td><%= mobile.getMobileID() %></td>
+                        <td><%= mobile.getDescription() %></td>
+                        <td>$<%= mobile.getPrice() %></td>
+                        <td><%= mobile.getMobileName() %></td>
+                        <td><%= mobile.getYearOfProduction() %></td>
+                        <td><%= mobile.getQuantity() %></td>
+                        <td><%= mobile.isNotSale() ? "Yes" : "No" %></td>
+                        <td>
+                            <form action="ManageCartController" method="post">
+                                <input type="hidden" name="MobileId" value="<%= mobile.getMobileID() %>">
+                                <input class="btn add" type="submit" value="Add" name="action">
+                            </form>
+                        </td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
             <% } else { %>
-                <p class="no-result">🚫 No mobile data found.</p>
+            <p class="no-result">🚫 No mobile data found.</p>
             <% } %>
 
             <!-- 🔢 Pagination -->
+            <!-- 🔢 Pagination -->
             <% if (totalPages > 1) { %>
-                <div class="pagination">
-                    <% if (currentPage > 1) { %>
-                        <a href="ViewMobileController?page=<%= currentPage - 1 %>">⬅ Prev</a>
-                    <% } %>
-                    <% for (int i = 1; i <= totalPages; i++) { %>
-                        <% if (i == currentPage) { %>
-                            <span class="current-page"><%= i %></span>
-                        <% } else { %>
-                            <a href="ViewMobileController?page=<%= i %>"><%= i %></a>
-                        <% } %>
-                    <% } %>
-                    <% if (currentPage < totalPages) { %>
-                        <a href="ViewMobileController?page=<%= currentPage + 1 %>">Next ➡</a>
-                    <% } %>
-                </div>
+            <div class="pagination">
+                <% if (currentPage > 1) { %>
+                <a href="ViewMobileController?page=<%= currentPage - 1 %>">⬅ Prev</a>
+                <% } %>
+                <% for (int i = 1; i <= totalPages; i++) { %>
+                <% if (i == currentPage) { %>
+                <span class="current-page"><%= i %></span>
+                <% } else { %>
+                <a href="ViewMobileController?page=<%= i %>"><%= i %></a>
+                <% } %>
+                <% } %>
+                <% if (currentPage < totalPages) { %>
+                <a href="ViewMobileController?page=<%= currentPage + 1 %>">Next ➡</a>
+                <% } %>
+            </div>
             <% } %>
+
 
             <!-- ℹ️ Summary & Message -->
             <h3 class="summary">📦 Mobiles found: <%= numberOfMobile %></h3>
 
             <% if (message != null) { %>
-                <h4 class="message"><%= message %></h4>
+            <h4 class="message"><%= message %></h4>
             <% } %>
 
             <!-- 🔗 Action Buttons -->

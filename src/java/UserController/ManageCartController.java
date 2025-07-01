@@ -33,7 +33,7 @@ public class ManageCartController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String action = request.getParameter("action");
-        
+        String actionCart = request.getParameter("cartOption");
         HttpSession session = request.getSession();
         String url = null;
         try {
@@ -44,7 +44,8 @@ public class ManageCartController extends HttpServlet {
                     if (mobileID != null && !mobileID.trim().isEmpty()) {
                         session.setAttribute("MobileId", mobileID); 
                         url = addToCartPage;
-                    } 
+                    }
+                    
                     break;
                 case "Find Price Range":
                     String minPrm = request.getParameter("txtMinValue");
@@ -64,7 +65,7 @@ public class ManageCartController extends HttpServlet {
                     session.setAttribute("MinValue", minValue);
                     session.setAttribute("MaxValue", maxValue);
                     session.setAttribute("actionChoice", "ViewMobileByPrice");
-                    url = viewRangePricePage;
+                    url = viewPage;
                     break;
                 case "ViewList":
                     MobileDAO mobileDAO = new MobileDAO();
