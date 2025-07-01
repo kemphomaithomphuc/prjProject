@@ -33,6 +33,7 @@ public class ManageCartController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String action = request.getParameter("action");
+        
         HttpSession session = request.getSession();
         String url = null;
         try {

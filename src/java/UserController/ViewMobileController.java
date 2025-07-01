@@ -40,6 +40,7 @@ public class ViewMobileController extends HttpServlet {
         PrintWriter out = response.getWriter();
         String url = "ViewMobileList.jsp";
         String actionChoice = (String) session.getAttribute("actionChoice");
+        String action = request.getParameter("cartOption");
         try {
             MobileDAO mobileDAO = new MobileDAO();
             List<Mobile> mobileList = mobileDAO.getMobileList();
@@ -55,7 +56,7 @@ public class ViewMobileController extends HttpServlet {
             request.setAttribute("currentPage", currentPage);
             request.setAttribute("totalPages", totalPages);
             session.setAttribute("MobileList", mobileList);
-           if ("ViewMobileByPrice".equals(actionChoice)) {
+           if ("ViewMobileByPrice".equals(actionChoice) || action.equals("Price")) {
                url = "ViewBookByPrice.jsp";
                
            }

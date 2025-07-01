@@ -56,7 +56,7 @@
                     <td><%= mobile.getYearOfProduction() %></td>
                     <td><%= mobile.getQuantity() %></td>
                     <td><%= mobile.isNotSale() ? "Yes" : "No" %></td>
-                    <td><a class="btn btn-add" href="ManageCartController?action=Add&MobileId=<%= mobile.getMobileID() %>">Add</a></td>
+                    <td><a class="btn btn-add" href="ManageCartController?action=Add&cartOption=Price&MobileId=<%= mobile.getMobileID() %>">Add</a></td>
                 </tr>
                 <% } %>
                  <% } %>
