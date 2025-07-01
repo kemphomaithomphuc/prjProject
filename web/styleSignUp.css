@@ -1,0 +1,137 @@
+/* Reset & Font */
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    height: 100%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Background effect */
+.background-blur {
+    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    padding: 20px;
+    width: 100%;
+    max-width: 320px;
+    animation: fadeInUp 0.5s ease;
+}
+
+/* Card layout */
+.signup-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    color: #fff;
+    text-align: center;
+}
+
+.signup-title {
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+.subtitle {
+    font-size: 0.75em;
+    color: #ddd;
+    margin-top: -6px;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.input-group label {
+    font-size: 0.75em;
+    margin-bottom: 3px;
+}
+
+.input-group input {
+    padding: 6px;
+    width: 100%;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.85em;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    outline: none;
+}
+
+.input-group input:focus {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75em;
+}
+
+/* Submit button */
+.wow-button {
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 14px;
+    font-size: 0.85em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.wow-button:hover {
+    transform: scale(1.04);
+    background: linear-gradient(to right, #0072ff, #00c6ff);
+}
+
+.login-back {
+    margin-top: 4px;
+}
+
+.login-back a {
+    color: #ffffffcc;
+    text-decoration: none;
+    font-size: 0.75em;
+    transition: 0.3s ease;
+}
+
+.login-back a:hover {
+    text-decoration: underline;
+}
+
+.message-box {
+    background: rgba(255, 0, 0, 0.2);
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.75em;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

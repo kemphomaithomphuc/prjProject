@@ -1,0 +1,187 @@
+/* 🔧 General Layout */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 🏷️ Title */
+.title {
+    text-align: center;
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+/* 🔍 Filter Form */
+.filter-form {
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: #eef6ff;
+    border-radius: 8px;
+    border: 1px solid #cfe2ff;
+}
+
+.price-range {
+    border: none;
+    padding: 0;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.input-box {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 150px;
+}
+
+/* 📱 Mobile Table */
+.mobile-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background-color: #fff;
+}
+
+.mobile-table th, .mobile-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.mobile-table th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+.mobile-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.mobile-table tr:hover {
+    background-color: #eef;
+}
+
+/* 🧮 Pagination */
+.pagination {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.pagination a, .pagination span {
+    display: inline-block;
+    margin: 0 6px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    font-weight: bold;
+    color: #333;
+    transition: 0.3s;
+}
+
+.pagination a:hover {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.pagination .current-page {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+/* ✅ Buttons */
+.btn {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.95em;
+    transition: background-color 0.3s;
+}
+
+.btn.primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn.primary:hover {
+    background-color: #0056b3;
+}
+
+.btn.add {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn.add:hover {
+    background-color: #1e7e34;
+}
+
+.btn.cart {
+    background-color: #ffc107;
+    color: #333;
+}
+
+.btn.cart:hover {
+    background-color: #e0a800;
+}
+
+.btn.back {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn.back:hover {
+    background-color: #5a6268;
+}
+
+/* 📝 Summary & Message */
+.summary {
+    margin-top: 20px;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+}
+
+.message {
+    text-align: center;
+    color: #28a745;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 1.1em;
+}
+
+.no-result {
+    color: #dc3545;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.1em;
+    padding: 10px;
+}
+
+/* 🔗 Action Buttons Row */
+.action-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+}
