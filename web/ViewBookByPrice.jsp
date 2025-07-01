@@ -20,7 +20,7 @@
             int numberOfMobile = 0;
             float minValue = (float) session.getAttribute("MinValue");
             float maxValue = (float) session.getAttribute("MaxValue");
-            List<Mobile> mobileList = (List<Mobile>) request.getAttribute("FilteredMobileList");
+            List<Mobile> mobileList = (List<Mobile>) session.getAttribute("MobileList");
             int currentPage = request.getAttribute("currentPage") != null ? (Integer) request.getAttribute("currentPage") : 1;
             int totalPages = request.getAttribute("totalPages") != null ? (Integer) request.getAttribute("totalPages") : 1;
             String message = (String) request.getAttribute("Message");
@@ -44,6 +44,7 @@
             <tbody>
                 <% count = (currentPage - 1) * 10;
                    for (Mobile mobile : mobileList) {
+                   if (mobile.getPrice() >= minValue && mobile.getPrice() <= maxValue) {
                        numberOfMobile++;
                 %>
                 <tr>
@@ -58,6 +59,7 @@
                     <td><a class="btn btn-add" href="ManageCartController?action=Add&MobileId=<%= mobile.getMobileID() %>">Add</a></td>
                 </tr>
                 <% } %>
+                 <% } %>
             </tbody>
         </table>
         <% } else { %>
@@ -92,7 +94,7 @@
         </section>
 
         <div class="back-link">
-            <a class="btn btn-back" href="ViewMobileController">⬅ Back</a>
+            <a class="btn btn-back" href="ManageCartController?action=ViewList">⬅ Back</a>
         </div>
     </div>
 </body>

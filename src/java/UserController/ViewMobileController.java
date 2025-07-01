@@ -55,6 +55,10 @@ public class ViewMobileController extends HttpServlet {
             request.setAttribute("currentPage", currentPage);
             request.setAttribute("totalPages", totalPages);
             session.setAttribute("MobileList", mobileList);
+           if ("ViewMobileByPrice".equals(actionChoice)) {
+               url = "ViewBookByPrice.jsp";
+               
+           }
         } catch (Exception ex) {
             out.println(ex.getMessage());
         } finally {
